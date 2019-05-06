@@ -1,0 +1,36 @@
+"""Guessing Game One Player Solution
+Exercise 9
+
+Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right.
+
+Extras:
+
+    Keep the game going until the user types “exit”
+    Keep track of how many guesses the user has taken, and when the game ends, print this out.
+"""
+
+
+guess = 0
+count = 0
+while count < 5:                    #This game gives you 5 trials
+    from random import randint      #importing the random library fxn
+    generated_number = randint(1,9) #random number generator
+    guess = int(input("Guess the right number between 1 and 9: "))              #Player inputs guess!
+    if generated_number == guess:                               #conditions test
+        print("Well done!, you guessed right.")
+        print('The correct number is: ', generated_number)
+    elif generated_number < guess:
+        print("Awwww!, you guessed wrong; your number is higher... Try again.")
+        print('The correct number is: ', generated_number)
+    else:
+        print("Awwww!, you guessed wrong; your number is lower... Try again.")
+        print('The correct number is: ', generated_number)
+    count += 1                      #count to track the number of trials and breaks iteration.
+    print()
+
+print()
+print("Type 'quit' to end game.")
+while True:
+    user_command = input()
+    if user_command == "quit":
+        break
